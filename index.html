@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Дерябин ПИЭ-31</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script defer src="js/file1.js"></script>
+    <script defer src="js/file2.js"></script>
+    <script defer src="js/number_between.js"></script>
+    <script defer src="js/serial_number.js"></script>
+    <script defer src="js/first_system.js"></script>
+    <script defer src="js/second_system.js"></script>
+    <script defer src="js/even_set.js"></script>
+    <script defer src="js/summ_number_range.js"></script>
+    <script defer src="js/midline_trapezoid.js"></script>
+    <script defer src="js/matrix.js"></script>
+    <script>
+        function hide_all_tasks() {
+            $("div.task").each(function (index, task_item) {
+                console.log(task_item);
+                $(task_item).hide();
+            });
+        };
+
+
+        $(document).ready(function () {
+            $("#el1").click(function () {
+                hide_all_tasks();
+                $("#task1").show();
+            });
+            $("#el2").click(function () {
+                hide_all_tasks();
+                $("#task2").show();
+            });
+            $("#el3").click(function () {
+                hide_all_tasks();
+                $("#task3_1").show();
+                $("#task3_2").show();
+            });
+            $("#el4").click(function () {
+                hide_all_tasks();
+                $("#task3_3").show();
+                $("#task3_4").show();
+            });
+            $("#el5").click(function () {
+                hide_all_tasks();
+                $("#task4_1").show();
+            });
+            $("#el6").click(function () {
+                hide_all_tasks();
+                $("#task4_2").show();
+            });
+            $("#el7").click(function () {
+                hide_all_tasks();
+                $("#task5_1").show();
+            });
+            $("#el8").click(function () {
+                hide_all_tasks();
+                $("#task5_2").show();
+            });
+            $("#calc_average_sqrt").click(function () {
+                average_sqrt("value1", "value2", "res");
+            })
+            $("#calc_three_digit_number").click(function () {
+                calc_hundrend("three_digit_number", "res_hundred")
+            })
+            $("#average_number_between").click(function () {
+                check_number_between("first_number_a", "second_number_b", "third_number_c", "res_average_number_between")
+            })
+            $("#serial_number").click(function () {
+                find_two_serial_number("first_number", "second_number", "res_serial_number")
+            })
+            $("#calc_system_1").click(function () {
+                solution_first_system("system_1_number_a", "system_1_number_b", "system_1_number_x", "res_system_1")
+            })
+            $("#calc_system_2").click(function () {
+                solution_second_system("system_2_number_a", "system_2_number_b", "system_2_number_x", "res_system_2")
+            })
+            $("#add").click(function () {
+                create_inputs($("#integer_value").val(), "for_input", "help")
+            })
+            $("#clear").click(function () {
+                $("#help").empty()
+                $("#for_input").empty()
+            })
+            $("#calc_even_number_set").click(function () {
+                count_even_numbers("even_number_set_res");
+            })
+            $("#calc_summ_number_range").click(function () {
+                summ_number_range("number_a_for_summ", "number_b_for_summ", "summ_number_range_res");
+            })
+            $("#calc_midline_trapezoid").click(function () {
+                calc_midline_trapezoid("first_base", "second_base", "midline_trapezoid_res");
+            })
+            $("#calc_output_string_elements").click(function () {
+                // console.log(create_matrix("input_rows", "input_cols").length)
+            
+                output_string_elements(create_matrix("input_rows", "input_cols"), "number_row", "output_string_elements_res");
+                
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="dropdown" style>
+            <button class="dropdown-btn">Лабараторная работа №2</button>
+            <div class="dropdown-content">
+                <a href="#" id="el1">Задание №1</a>
+                <a href="#" id="el2">Задание №2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Лабораторная работа №3</button>
+            <div class="dropdown-content">
+                <a href="#" id="el3">Задание №1,2</a>
+                <a href="#" id="el4">Задание №3,4</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Лабораторная работа №4</button>
+            <div class="dropdown-content">
+                <a href="#" id="el5">Задание №1</a>
+                <a href="#" id="el6">Задание №2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Лабораторная работа №5</button>
+            <div class="dropdown-content">
+                <a href="#" id="el7">Задание №1</a>
+                <a href="#" id="el8">Задание №2</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div id="task1" class="task">
+            <h4 class="position-task">
+                Задание 1
+            </h4>
+            <div>
+                <p class="position-task">
+                    Даны два неотрицательных числа a и b. Найти их среднее геометрическое, то есть квадратный корень из
+                    их произведения.
+                </p>
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите a:</a>
+                    <input type="text" id="value1" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите b:</a>
+                    <input type="text" id="value2" value>
+                </div>
+            </div>
+            <div>
+                <button id="calc_average_sqrt" class="btn-calc">
+                    Вычислить
+                </button>
+            </div>
+            <div class="block-answer">
+                Ответ:<span id="res"></span>
+            </div>
+        </div>
+
+        <div id="task2" class="task">
+            <h4 class="position-task">
+                Задание 2
+            </h4>
+            <div>
+                <p class="position-task">Дано трехзначное число. Используя одну операцию деления нацело, вывести первую
+                    цифру данного числа
+                    (сотни).</p>
+            </div>
+
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите трехзначное число:</a>
+                    <input type="text" id="three_digit_number" value>
+                </div>
+
+                <div>
+                    <button id="calc_three_digit_number" class="btn-calc">
+                        Вычислить
+                    </button>
+                </div>
+                <div class="block-answer">
+                    Ответ:<span id="res_hundred"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="task" id="task3_1">
+            <h4 class="position-task">
+                Задание 1
+            </h4>
+            <div>
+                <p class="position-task">Даны три целых числа: A, B, C. Проверить истинность высказывания: «Число B
+                    находится между числами A и C».
+                </p>
+            </div>
+
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите чилсо A:</a>
+                    <input type="text" id="first_number_a" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите чилсо B:</a>
+                    <input type="text" id="second_number_b" value>
+                </div>
+                <div>
+                    <a class="input-text">Введите чилсо C:</a>
+                    <input type="text" id="third_number_c" value>
+                </div>
+                <div>
+                    <button id="average_number_between" class="btn-calc">
+                        Вычислить
+                    </button>
+                </div>
+                <div class="block-answer">
+                    Ответ:<span id="res_average_number_between"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="task" id="task3_2">
+            <h4 class="position-task">
+                Задание 2
+            </h4>
+            <div>
+                <p class="position-task">Даны два числа. Вывести порядковый номер меньшего из них.
+                </p>
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите первое число:</a>
+                    <input type="text" id="first_number" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите второе число:</a>
+                    <input type="text" id="second_number" value>
+                </div>
+                <div>
+                    <button id="serial_number" class="btn-calc">
+                        Вычислить
+                    </button>
+                </div>
+                <div class="block-answer">
+                    Ответ:<span id="res_serial_number"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="task" id="task3_3">
+            <h4 class="position-task">
+                Задание 3
+            </h4>
+            <div>
+                <p class="position-task">
+                    Вычисление системы
+                </p>
+                <img src="img/system_1.jpg" />
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите a:</a>
+                    <input type="text" id="system_1_number_a" value>
+                </div>
+                <div>
+                    <a class="input-text">Введите b:</a>
+                    <input type="text" id="system_1_number_b" value>
+                </div>
+                <div>
+                    <a class="input-text">Введите x:</a>
+                    <input type="text" id="system_1_number_x" value>
+                </div>
+                <div>
+                    <button id="calc_system_1" class="btn-calc">
+                        Вычислить
+                    </button>
+                </div>
+                <div class="block-answer">
+                    Ответ:<span id="res_system_1"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="task" id="task3_4">
+            <h4 class="position-task">
+                Задание 4
+            </h4>
+            <div>
+                <p class="position-task">
+                    Вычисление системы
+                </p>
+                <img src="img/system_2.jpg" />
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите a:</a>
+                    <input type="text" id="system_2_number_a" value>
+                </div>
+                <div>
+                    <a class="input-text">Введите b:</a>
+                    <input type="text" id="system_2_number_b" value>
+                </div>
+                <div>
+                    <a class="input-text">Введите x:</a>
+                    <input type="text" id="system_2_number_x" value>
+                </div>
+                <div>
+                    <button id="calc_system_2" class="btn-calc">
+                        Вычислить
+                    </button>
+                </div>
+                <div class="block-answer">
+                    Ответ:<span id="res_system_2"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="task" id="task4_1">
+            <h4 class="position-task">
+                Задание 1
+            </h4>
+            <div>
+                <p class="position-task">
+                    Дано целое число N и набор из N целых чисел. Вывести в том же порядке все четные числа из
+                    данного набора и количество K таких чисел.
+                </p>
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите число N:</a>
+                    <input type="text" id="integer_value" value>
+                </div>
+
+                <div id="help">
+
+                </div>
+                <div id="for_input">
+
+                </div>
+            </div>
+            <div>
+                <button class="btn-calc" id="add">Добавить</button>
+                <button class="btn-calc" id="clear">Очистить</button>
+            </div>
+            <div style="margin-top: 10px;">
+                <button id="calc_even_number_set" class="btn-calc">
+                    Вычислить
+                </button>
+            </div>
+            <div class="block-answer">
+                Ответ:<span id="even_number_set_res"></span>
+            </div>
+        </div>
+
+        <div class="task" id="task4_2">
+            <h4 class="position-task">
+                Задание 2
+            </h4>
+            <div>
+                <p class="position-task">
+                    Даны два целых числа A и B (A < B). Найти сумму всех целых чисел от A до B включительно. </p>
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите число A:</a>
+                    <input type="text" id="number_a_for_summ" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите число B:</a>
+                    <input type="text" id="number_b_for_summ" value>
+                </div>
+            </div>
+            <div>
+                <button id="calc_summ_number_range" class="btn-calc">
+                    Вычислить
+                </button>
+            </div>
+            <div class="block-answer">
+                Ответ:<span id="summ_number_range_res"></span>
+            </div>
+        </div>
+
+        <div class="task" id="task5_1">
+            <h4 class="position-task">
+                Задание 1
+            </h4>
+            <div>
+                <p class="position-task">
+                    Написать функцию f(a,b), вычисляющую и возвращающую длину средней линии трапеции по заданным длинам
+                    оснований a и b. Продемонстрировать ее работу для трех трапеций.
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите число A:</a>
+                    <input type="text" id="first_base" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите число B:</a>
+                    <input type="text" id="second_base" value>
+                </div>
+            </div>
+            <div>
+                <button id="calc_midline_trapezoid" class="btn-calc">
+                    Вычислить
+                </button>
+            </div>
+            <div class="block-answer">
+                Ответ:<span id="midline_trapezoid_res"></span>
+            </div>
+        </div>
+
+        <div class="task" id="task5_2">
+            <h4 class="position-task">
+                Задание 2
+            </h4>
+            <div>
+                <p class="position-task">
+                    Для любого задания лабораторных работ № 5 и №6 реализовать ввод, формирование/обработку и вывод
+                    массивов с применением функций.
+                    Дана матрица размера M × N и целое число K (1 ≤ K ≤ M ). Вывести элементы K -й строки данной
+                    матрицы.
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите число строк:</a>
+                    <input type="text" id="input_rows" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите число колон:</a>
+                    <input type="text" id="input_cols" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите номер строки:</a>
+                    <input type="text" id="number_row" value>
+                </div>
+            </div>
+            <div>
+                <button id="calc_output_string_elements" class="btn-calc">
+                    Вычислить
+                </button>
+            </div>
+            <div class="block-answer">
+                Ответ:<span id="output_string_elements_res"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
