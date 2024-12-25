@@ -16,6 +16,7 @@
     <script defer src="js/summ_number_range.js"></script>
     <script defer src="js/midline_trapezoid.js"></script>
     <script defer src="js/matrix.js"></script>
+    <script defer src="js/matrix_even_rows.js"> </script>
     <script>
         function hide_all_tasks() {
             $("div.task").each(function (index, task_item) {
@@ -60,6 +61,10 @@
                 hide_all_tasks();
                 $("#task5_2").show();
             });
+            $("#el9").click(function () {
+                hide_all_tasks();
+                $("#task6_1").show();
+            });
             $("#calc_average_sqrt").click(function () {
                 average_sqrt("value1", "value2", "res");
             })
@@ -94,9 +99,11 @@
             $("#calc_midline_trapezoid").click(function () {
                 calc_midline_trapezoid("first_base", "second_base", "midline_trapezoid_res");
             })
-            $("#calc_output_string_elements").click(function () {            
+            $("#calc_output_string_elements").click(function () {
                 output_string_elements(create_matrix("input_rows", "input_cols"), "number_row", "output_string_elements_res");
-                
+            })
+            $("#calc_even_rows").click(function () {
+                output_even_rows(create_matrix("input_rows_m", "input_cols_n"), "even_rows_res");
             })
         });
 
@@ -131,6 +138,13 @@
             <div class="dropdown-content">
                 <a href="#" id="el7">Задание №1</a>
                 <a href="#" id="el8">Задание №2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Лабораторная работа №6</button>
+            <div class="dropdown-content">
+                <a href="#" id="el9">Задание №1</a>
+                <a href="#" id="el10">Задание №2</a>
             </div>
         </div>
     </div>
@@ -455,6 +469,36 @@
             </div>
             <div class="block-answer">
                 Ответ:<span id="output_string_elements_res"></span>
+            </div>
+        </div>
+
+        <div class="task" id="task6_1">
+            <h4 class="position-task">
+                Задание 1
+            </h4>
+            <div>
+                <p class="position-task">
+                    Дана матрица размера M × N. Вывести ее элементы, расположенные в строках с четными номерами (2, 4, .
+                    . .). Вывод элементов производить по строкам, условный оператор не использовать.
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите число строк:</a>
+                    <input type="text" id="input_rows_m" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите число колон:</a>
+                    <input type="text" id="input_cols_n" value>
+                </div>
+            </div>
+            <div>
+                <button id="calc_even_rows" class="btn-calc">
+                    Вычислить
+                </button>
+            </div>
+            <div class="block-answer">
+                Ответ:<span id="even_rows_res"></span>
             </div>
         </div>
     </div>
