@@ -17,15 +17,18 @@ function create_matrix(rows_id, cols_id) {
 }
 
 function replace_even_part_matrix(matrix, matrix_id, res_id) {
-
+    document.getElementById(matrix_id).innerText = ""
+    document.getElementById(res_id).innerText = ""
 
     let arr_first_quarter = []
     let arr_fourty_quarter = []
 
     for(let i = 0; i < matrix.length; i++){
-        for(let j = 0; j < matrix[0].length; j++){
-            document.getElementById(matrix_id* ).innerText += matrix[i][j].join(" ") + "\n"
+        let row_string = ""
+        for(let j = 0; j < matrix[i].length; j++){
+            row_string += matrix[i][j] + " "
         }
+        document.getElementById(matrix_id).innerText += row_string + "\n"
     }
 
     for (let i = 0; matrix.length / 2 > i; i++) {
@@ -51,8 +54,10 @@ function replace_even_part_matrix(matrix, matrix_id, res_id) {
     }
 
     for(let i = 0; i < matrix.length; i++){
-        for(let j = 0; j < matrix[0].length; j++){
-            document.getElementById(res_id).innerText += matrix[i][j].join(" ") + "\n"
+        let row_string = ""
+        for(let j = 0; j < matrix[i].length; j++){
+            row_string += matrix[i][j] + " "
         }
+        document.getElementById(res_id).innerText += row_string + "\n"
     }
 }

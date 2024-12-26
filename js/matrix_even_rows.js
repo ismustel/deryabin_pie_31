@@ -17,7 +17,9 @@ function create_matrix(rows_id, cols_id) {
 }
 
 function output_even_rows(matrix, res_id){
-    for (let i = 1; (i+1) < matrix.length; i += 2){
+    document.getElementById(res_id).innerText = ""
+    for (let i = 1; i < matrix.length; i += 2){
+        console.log(matrix[i])
         document.getElementById(res_id).innerText += matrix[i].join(" ") + "\n"
     }
 }

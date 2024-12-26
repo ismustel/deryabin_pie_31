@@ -116,7 +116,9 @@
                 output_even_rows(create_matrix("input_rows_m", "input_cols_n"), "even_rows_res");
             })
             $("#calc_replace_quetry").click(function () {
-                output_even_rows(create_matrix("input_rows_m_laba6", "input_cols_n_laba6"),"replace_matrix_res" ,"replace_quetry_res");
+                replace_even_part_matrix(create_matrix("input_rows_m_laba6", "input_cols_n_laba6"), "replace_quetry_res", "replace_matrix_res");
+            
+                
             })
             $("#search_product").click(function () {
                 $("#search_block").empty
@@ -548,6 +550,7 @@
                 </button>
             </div>
             <div class="block-answer">
+                Матрица:
                 <p id="replace_matrix_res"></p>
             </div>
             <div class="block-answer">
