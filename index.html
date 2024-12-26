@@ -18,6 +18,7 @@
     <script defer src="js/matrix.js"></script>
     <script defer src="js/matrix_even_rows.js"> </script>
     <script defer src="js/api.js"></script>
+    <script defer src="js/even_part_martix_replace.js"></script>
     <script>
         function hide_all_tasks() {
             $("div.task").each(function (index, task_item) {
@@ -66,6 +67,10 @@
                 hide_all_tasks();
                 $("#task6_1").show();
             });
+            $("#el10").click(function () {
+                hide_all_tasks();
+                $("#task6_2").show();
+            });
             $("#laba7").click(function () {
                 hide_all_tasks();
                 $("#task7_1").show();
@@ -109,6 +114,9 @@
             })
             $("#calc_even_rows").click(function () {
                 output_even_rows(create_matrix("input_rows_m", "input_cols_n"), "even_rows_res");
+            })
+            $("#calc_replace_quetry").click(function () {
+                output_even_rows(create_matrix("input_rows_m_laba6", "input_cols_n_laba6"),"replace_matrix_res" ,"replace_quetry_res");
             })
             $("#search_product").click(function () {
                 $("#search_block").empty
@@ -510,7 +518,40 @@
                 </button>
             </div>
             <div class="block-answer">
-                Ответ:<span id="even_rows_res"></span>
+                Ответ:<p id="even_rows_res"></p>
+            </div>
+        </div>
+
+        <div class="task" id="task6_2">
+            <h4 class="position-task">
+                Задание 2
+            </h4>
+            <div>
+                <p class="position-task">
+                    Дана матрица размера  M × N (M и  N —  четные числа). Поменять местами левую верхнюю и правую нижнюю четверти матрицы.
+            </div>
+            <div class="data-entry">
+                <div>
+                    <a class="input-text">Введите число строк:</a>
+                    <input type="text" id="input_rows_m_laba6" value>
+                </div>
+
+                <div>
+                    <a class="input-text">Введите число колон:</a>
+                    <input type="text" id="input_cols_n_laba6" value>
+                </div>
+            </div>
+
+            <div>
+                <button id="calc_replace_quetry" class="btn-calc">
+                    Вычислить
+                </button>
+            </div>
+            <div class="block-answer">
+                <p id="replace_matrix_res"></p>
+            </div>
+            <div class="block-answer">
+                Ответ:<p id="replace_quetry_res"></p>
             </div>
         </div>
         
